@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">فروشگاه کتاب</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_home">فروشگاه</string>
+    <string name="special_suggest">پیشنهاد ویژه</string>
+    <string name="add_ons">افزودن آگهی</string>
+    <string name="profile">پروفایل</string>
+</resources>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/normal_margin"
+    android:layoutDirection="rtl"
+    app:cardBackgroundColor="@color/colorPrimary"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:paddingRight="@dimen/small_margin">
+
+        <ImageView
+            android:id="@+id/imgBookFavorite"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="@dimen/normal_margin"
+            android:layout_marginBottom="@dimen/normal_margin"
+            android:src="@drawable/book" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_toLeftOf="@id/imgBookFavorite"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/large_margin">
+
+            <CustomControls.CustomTextView
+                android:id="@+id/txtTitleFavorite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/small_margin"
+                android:text="برنامه نویسی کامیپوتر"
+                android:textColor="@color/colorBlack"
+
+                android:textSize="@dimen/larger_font" />
+
+            <CustomControls.CustomTextView
+                android:id="@+id/timeFavorite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/normal_margin"
+                android:layout_marginRight="@dimen/small_margin"
+                android:text="سه روز پیش"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/large_font" />
+
+            <CustomControls.CustomTextView
+                android:id="@+id/paymentFavorite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/normal_margin"
+                android:layout_marginRight="@dimen/small_margin"
+                android:text="5500 تومان"
+                android:textColor="@android:color/holo_green_dark"
+                android:textSize="@dimen/large_font" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignBottom="@id/imgBookFavorite"
+            android:layout_alignParentLeft="true"
+            android:gravity="left|bottom"
+            android:orientation="vertical"
+            android:padding="@dimen/small_margin">
+
+            <ImageView
+                android:id="@+id/shareFavorite"
+                android:layout_width="@dimen/profile_icon_size"
+                android:layout_height="@dimen/profile_icon_size"
+                android:layout_marginTop="@dimen/normal_margin"
+                android:tint="@color/colorPrimaryDarker"
+                app:srcCompat="@drawable/ic_share_gray" />
+
+            <ImageView
+                android:id="@+id/isSellFavorite"
+                android:layout_width="@dimen/profile_icon_size"
+                android:layout_height="@dimen/profile_icon_size"
+                android:layout_marginTop="@dimen/normal_margin"
+                android:tint="@color/colorPrimaryDarker"
+                app:srcCompat="@drawable/ic_delete_forever" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

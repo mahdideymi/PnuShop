@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="rtl"
+    android:background="@color/colorWhite"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_scrollFlags="scroll|enterAlways">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorWhite">
+
+            <CustomControls.CustomTextView
+                android:id="@+id/toolbar_ad_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="12dp"
+                android:text="پروفایل من"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp" />
+
+            <CustomControls.CustomTextView
+                android:id="@+id/clear_ad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="12dp"
+                android:text="خروج از حساب کاربری"
+                android:textColor="@color/colorBlack"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/clear_ad"
+                android:layout_alignBottom="@id/clear_ad"
+                android:layout_toRightOf="@id/clear_ad"
+                app:srcCompat="@drawable/ic_exit" />
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+    <CustomControls.CustomTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/largest_margin"
+        android:text="شما با شماره 9301384709 در حساب کاربری خود وارد شده اید."
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/normal_font" />
+
+    <LinearLayout
+        android:id="@+id/lineSuggestToFriend"
+        android:layout_marginTop="@dimen/small_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="@dimen/profile_icon_size"
+            android:layout_height="@dimen/profile_icon_size"
+            android:layout_marginRight="@dimen/largest_margin"
+            android:rotation="180"
+            android:tint="@color/colorAccent"
+            app:srcCompat="@drawable/ic_share_gray" />
+        <CustomControls.CustomTextView
+            android:id="@+id/suggestToFriend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/largest_margin"
+            android:text="پیشنهاد به دوستان"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/profile_text_size" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/lineFavorite"
+        android:layout_marginTop="@dimen/small_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="@dimen/profile_icon_size"
+            android:layout_height="@dimen/profile_icon_size"
+            android:layout_marginRight="@dimen/largest_margin"
+            android:tint="@color/colorAccent"
+            app:srcCompat="@drawable/ic_favorite" />
+        <CustomControls.CustomTextView
+            android:id="@+id/favorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/largest_margin"
+            android:text="نشان شده ها"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/profile_text_size" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/lineMyAds"
+        android:layout_marginTop="@dimen/small_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="@dimen/profile_icon_size"
+            android:layout_height="@dimen/profile_icon_size"
+            android:layout_marginRight="@dimen/largest_margin"
+            android:tint="@color/colorAccent"
+            app:srcCompat="@drawable/ic_person" />
+        <CustomControls.CustomTextView
+            android:id="@+id/myAds"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/largest_margin"
+            android:text="آگهی های من"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/profile_text_size" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/lineHelper"
+        android:layout_marginTop="@dimen/small_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="@dimen/profile_icon_size"
+            android:layout_height="@dimen/profile_icon_size"
+            android:layout_marginRight="@dimen/largest_margin"
+            android:tint="@color/colorAccent"
+            app:srcCompat="@drawable/ic_help_outline" />
+        <CustomControls.CustomTextView
+            android:id="@+id/helper"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/largest_margin"
+            android:text="پشتیبانی"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/profile_text_size" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/lineLimitUse"
+        android:layout_marginTop="@dimen/small_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="@dimen/profile_icon_size"
+            android:layout_height="@dimen/profile_icon_size"
+            android:layout_marginRight="@dimen/largest_margin"
+            android:tint="@color/colorAccent"
+            app:srcCompat="@drawable/ic_announcement" />
+        <CustomControls.CustomTextView
+            android:id="@+id/limitUse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/largest_margin"
+            android:text="شرایط استفاده"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/profile_text_size" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/lineAboutUs"
+        android:layout_marginTop="@dimen/small_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="@dimen/profile_icon_size"
+            android:layout_height="@dimen/profile_icon_size"
+            android:layout_marginRight="@dimen/largest_margin"
+            android:tint="@color/colorAccent"
+            app:srcCompat="@drawable/ic_info_outline" />
+        <CustomControls.CustomTextView
+            android:id="@+id/aboutUs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/largest_margin"
+            android:text="درباره نرم افزار"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/profile_text_size" />
+    </LinearLayout>
+
+</LinearLayout>

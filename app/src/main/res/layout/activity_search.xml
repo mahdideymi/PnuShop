@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="rtl"
+    android:orientation="vertical"
+    tools:context="activities.SearchActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBarSearchActivity"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:cardBackgroundColor="@color/colorPrimary"
+            app:cardElevation="@dimen/smallest_margin">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/finishFromSearchActivity"
+                    android:layout_width="@dimen/icon_toolbar_size"
+                    android:layout_height="@dimen/icon_toolbar_size"
+                    android:layout_marginRight="@dimen/large_margin"
+                    android:rotation="180"
+                    app:srcCompat="@drawable/ic_back" />
+
+                <CustomControls.CustomEditText
+                    android:id="@+id/edtSearch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/largest_margin"
+                    android:layout_marginRight="@dimen/largest_margin"
+                    android:background="@drawable/edit_text_round"
+                    android:drawableLeft="@drawable/ic_search"
+                    android:hint="جستجو ..."
+                    android:paddingLeft="@dimen/large_margin"
+                    android:paddingTop="@dimen/normal_margin"
+                    android:paddingRight="@dimen/large_margin"
+                    android:paddingBottom="@dimen/normal_margin"
+                    android:textSize="@dimen/large_font"
+                    tools:ignore="RtlHardcoded" />
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_margin="@dimen/normal_margin"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+        <CustomControls.CustomTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="براساس:"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/largest_font" />
+
+        <CustomControls.CustomButton
+            android:id="@+id/searchWithName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/normal_margin"
+            android:layout_weight="1"
+            android:background="@drawable/button_search_back"
+            android:text="کد درس"
+            android:textColor="@color/colorWhite" />
+
+        <CustomControls.CustomButton
+            android:id="@+id/searchWithCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/normal_margin"
+            android:layout_weight="1"
+            android:background="@drawable/button_search_back"
+            android:text="نام کتاب"
+            android:textColor="@color/colorWhite" />
+
+        <CustomControls.CustomButton
+            android:id="@+id/searchWithAuther"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/normal_margin"
+            android:layout_weight="1"
+            android:background="@drawable/button_search_back"
+            android:text="نویسنده"
+            android:textColor="@color/colorWhite" />
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/searchRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

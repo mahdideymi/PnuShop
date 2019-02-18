@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="rtl"
+    android:orientation="vertical"
+    tools:context="activities.MyAdsActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBarMyAds"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:cardBackgroundColor="@color/colorPrimary"
+            app:cardElevation="2dp"
+            app:layout_scrollFlags="scroll|enterAlways">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/large_margin"
+                android:paddingRight="@dimen/large_margin">
+
+                <CustomControls.CustomTextView
+                    android:id="@+id/txtToolbarMyAds"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/normal_margin"
+                    android:layout_toLeftOf="@id/back_myAds"
+                    android:text="آگهی های من"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/largest_font" />
+
+                <ImageView
+                    android:id="@+id/back_myAds"
+                    android:layout_width="@dimen/icon_toolbar_size"
+                    android:layout_height="@dimen/icon_toolbar_size"
+                    android:rotation="180"
+                    app:srcCompat="@drawable/ic_back" />
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+    </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabLayoutMyAds"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:overScrollMode="always"
+            app:tabTextAppearance="@style/tab_text" />
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewPagerMyAds"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>

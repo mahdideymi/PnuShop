@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="rtl"
+    android:background="@color/colorWhite"
+    tools:context="activities.KindWallActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:cardBackgroundColor="@color/colorWhite"
+            app:cardElevation="@dimen/smallest_margin"
+            app:layout_scrollFlags="scroll|enterAlways">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_marginRight="@dimen/normal_margin"
+                android:gravity="center_vertical">
+
+                <CustomControls.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/normal_margin"
+                    android:layout_toLeftOf="@id/finishKindWall"
+                    android:text="@string/special_suggest"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/largest_font" />
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <CustomControls.CustomTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/large_margin"
+                android:text="برای سهولت در پیداکردن کتب رشته خود از این بخش استفاده نمائید."
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/normal_font" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/specialSuggestRecycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</android.support.design.widget.CoordinatorLayout>
