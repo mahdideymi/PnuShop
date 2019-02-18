@@ -40,16 +40,16 @@ public class SplashActivity extends ActivityEnhanced {
             App.HANDLER.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    //App.startActivity(Login.class, true);
+                    App.startActivity(InOrUpActivity.class, true);
                 }
-            }, 5000);
+            }, 2000);
+        }else{
+            App.HANDLER.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    App.startActivity(MainActivity.class, true);
+                }
+            }, 2000);
         }
-
-        App.HANDLER.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                App.startActivity(MainActivity.class, true);
-            }
-        }, 5000);
     }
 }
