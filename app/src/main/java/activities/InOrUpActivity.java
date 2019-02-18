@@ -12,7 +12,5 @@ public class InOrUpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_in_or_up);
-        Toast.makeText(this, "test toast 2", Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, "3test toast 2", Toast.LENGTH_SHORT).show();
     }
 }
