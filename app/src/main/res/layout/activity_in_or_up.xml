@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:layoutDirection="rtl"
+    android:orientation="vertical"
     tools:context="activities.InOrUpActivity">
 
     <RelativeLayout
@@ -14,9 +14,9 @@
         android:background="@color/colorAccent">
 
         <CustomControls.CustomTextViewBold
-            android:layout_centerInParent="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
             android:text="Uni Book !"
             android:textColor="@color/colorWhite"
             android:textSize="50sp" />
@@ -24,40 +24,40 @@
         <CustomControls.CustomTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="کتب دانشگاهی خود را به فروش برسانید."
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="@dimen/largest_margin"
+            android:text="کتب دانشگاهی خود را به فروش برسانید."
             android:textColor="@color/colorWhite"
-            android:textSize="@dimen/largest_font"/>
+            android:textSize="@dimen/largest_font" />
 
     </RelativeLayout>
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="horizontal">
 
         <CustomControls.CustomButton
-            android:background="@drawable/sign_up_button"
-            android:id="@+id/sign_in"
+            android:id="@+id/sign_up"
             android:layout_width="110dp"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:layout_marginLeft="15dp"
-            android:textColor="@color/colorWhite"
+            android:background="@drawable/sign_up_button"
             android:padding="@dimen/largest_margin"
             android:text="عضویت"
+            android:textColor="@color/colorWhite"
             android:textSize="@dimen/large_font" />
 
         <CustomControls.CustomButton
-            android:background="@drawable/sign_in_button"
-            android:textColor="@color/colorAccent"
-            android:id="@+id/sign_up"
+            android:id="@+id/sign_in"
             android:layout_width="110dp"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:layout_toRightOf="@id/sign_in"
+            android:background="@drawable/sign_in_button"
             android:text="ورود"
+            android:textColor="@color/colorAccent"
             android:textSize="@dimen/large_font" />
     </LinearLayout>
 
