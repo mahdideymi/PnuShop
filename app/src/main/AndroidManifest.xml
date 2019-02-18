@@ -15,7 +15,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".LoginActivity"></activity>
+        <activity android:name="activities.SignUpActivity"></activity>
+        <activity android:name="activities.LoginActivity" />
         <activity android:name="activities.InOrUpActivity" />
         <activity android:name="activities.MyAdsActivity" />
         <activity android:name="activities.ShowInfoActivity" />

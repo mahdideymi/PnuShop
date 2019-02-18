@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import CustomControls.CustomButton;
+import ir.punshop.book.App;
 import ir.punshop.book.R;
 
 public class InOrUpActivity extends AppCompatActivity {
@@ -30,7 +31,7 @@ public class InOrUpActivity extends AppCompatActivity {
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                App.startActivity(SignUpActivity.class);
             }
         });
     }

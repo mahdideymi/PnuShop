@@ -1,7 +1,9 @@
-package ir.punshop.book;
+package activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import ir.punshop.book.R;
 
 public class LoginActivity extends AppCompatActivity {
 

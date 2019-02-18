@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    android:gravity="center"
+    android:layoutDirection="rtl"
+    android:orientation="vertical"
+    tools:context="activities.SignUpActivity">
+
+    <CustomControls.CustomTextViewBold
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ثبت اطلاعات کاربری"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/large_3_font" />
+
+
+    <LinearLayout
+        android:background="@color/colorWhite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/large_margin"
+        android:orientation="vertical"
+        android:padding="@dimen/larger_larger_margin">
+
+        <CustomControls.CustomTextView
+            android:id="@+id/name_error"
+            android:textSize="@dimen/normal_font"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="نام باید فارسی باشد"
+            android:textColor="@color/colorRed" />
+
+        <CustomControls.CustomEditText
+            android:id="@+id/name_family_edt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            android:background="@drawable/edit_text_ad"
+            android:hint="نام و نام خانوادگی"
+            android:padding="@dimen/normal_margin" />
+
+        <CustomControls.CustomTextView
+            android:id="@+id/email_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ایمیل نمی تواند خالی باشد"
+            android:layout_marginTop="@dimen/small_margin"
+            android:textSize="@dimen/normal_font"
+            android:textColor="@color/colorRed" />
+
+        <CustomControls.CustomEditText
+            android:id="@+id/email_edt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            android:background="@drawable/edit_text_ad"
+            android:hint="ایمیل"
+            android:padding="@dimen/normal_margin" />
+
+        <CustomControls.CustomTextView
+            android:id="@+id/mobile_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="خطای فرمت تلفن همراه"
+            android:layout_marginTop="@dimen/small_margin"
+            android:textSize="@dimen/normal_font"
+            android:textColor="@color/colorRed" />
+
+        <CustomControls.CustomEditText
+            android:id="@+id/mobile_edt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            android:background="@drawable/edit_text_ad"
+            android:hint="تلفن همراه (95 60 *** 0915)"
+            android:padding="@dimen/normal_margin" />
+
+        <CustomControls.CustomTextView
+            android:id="@+id/stu_number_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="شماره دانشجویی را اشتباه وارد کرده اید"
+            android:layout_marginTop="@dimen/small_margin"
+            android:textSize="@dimen/normal_font"
+            android:textColor="@color/colorRed" />
+
+        <CustomControls.CustomEditText
+            android:id="@+id/stu_number_edt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            android:background="@drawable/edit_text_ad"
+            android:hint="شماره دانشجویی"
+            android:padding="@dimen/normal_margin" />
+
+        <CustomControls.CustomTextView
+            android:id="@+id/uni_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="دانشگاه نمی تواند خالی باشد"
+            android:layout_marginTop="@dimen/small_margin"
+            android:textSize="@dimen/normal_font"
+            android:textColor="@color/colorRed" />
+
+        <CustomControls.CustomEditText
+            android:id="@+id/uni_edt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            android:background="@drawable/edit_text_ad"
+            android:hint="دانشگاه"
+            android:padding="@dimen/normal_margin" />
+
+        <CustomControls.CustomTextView
+            android:id="@+id/field_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="رشته تحصیلی نمی تواند خالی باشد"
+            android:layout_marginTop="@dimen/small_margin"
+            android:textSize="@dimen/normal_font"
+            android:textColor="@color/colorRed" />
+
+        <CustomControls.CustomEditText
+            android:id="@+id/field_edt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            android:background="@drawable/edit_text_ad"
+            android:hint="رشته تحصیلی"
+            android:padding="@dimen/normal_margin" />
+
+    </LinearLayout>
+
+</LinearLayout>
