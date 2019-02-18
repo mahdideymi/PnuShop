@@ -25,6 +25,28 @@ public class SplashActivity extends ActivityEnhanced {
         sharedPrefrencesInfo = new SharedPrefrencesInfo();
         text = findViewById(R.id.showShare);
 
+        getSharedValues();
+        String nothing = "nothing";
+        if (nameFamily.equals(nothing) || email.equals(nothing) || telNumber.equals(nothing)
+                || field.equals(nothing) || unit.equals(nothing) || token.equals(nothing)
+                || collegiateNumber.equals(nothing)) {
+            App.HANDLER.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    goToNextActivity(InOrUpActivity.class);
+                }
+            }, 2000);
+        }else{
+            App.HANDLER.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    goToNextActivity(MainActivity.class);
+                }
+            }, 2000);
+        }
+    }
+
+    private void getSharedValues() {
         userModel = sharedPrefrencesInfo.getUser();
         nameFamily = userModel.getNameAndFamily();
         email = userModel.getEmail();
@@ -33,23 +55,9 @@ public class SplashActivity extends ActivityEnhanced {
         unit = userModel.getUnit();
         token = userModel.getToken();
         collegiateNumber = userModel.getColligateNum();
-        String nothing = "nothing";
-        if (nameFamily.equals(nothing) || email.equals(nothing) || telNumber.equals(nothing)
-                || field.equals(nothing) || unit.equals(nothing) || token.equals(nothing)
-                || collegiateNumber.equals(nothing)) {
-            App.HANDLER.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    App.startActivity(InOrUpActivity.class, true);
-                }
-            }, 2000);
-        }else{
-            App.HANDLER.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    App.startActivity(MainActivity.class, true);
-                }
-            }, 2000);
-        }
+    }
+
+    private void goToNextActivity(Class target){
+        App.startActivity(target , true);
     }
 }

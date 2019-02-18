@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/showShare"
-            android:text="test"
+            android:text=""
             android:gravity="center"
             android:textSize="@dimen/larger_font"
             android:textColor="@color/colorBlack"
