@@ -10,17 +10,20 @@ import ir.punshop.book.App;
 public class CustomButtonBold extends AppCompatButton {
     public CustomButtonBold(Context context) {
         super(context);
+        init();
     }
 
     public CustomButtonBold(Context context, AttributeSet attrs) {
         super(context, attrs);
+        init();
     }
 
     public CustomButtonBold(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        init();
     }
 
     private void init(){
-        setTypeface(App.FONT_NORMAL , Typeface.BOLD);
+        setTypeface(App.FONT_BOLD , Typeface.BOLD);
     }
 }

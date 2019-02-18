@@ -12,7 +12,7 @@
     <CustomControls.CustomTextViewBold
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ثبت اطلاعات کاربری"
+        android:text="تکمیل اطلاعات کاربری"
         android:textColor="@color/colorBlack"
         android:textSize="@dimen/large_3_font" />
 
@@ -23,9 +23,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/large_margin"
         android:orientation="vertical"
-        android:padding="@dimen/larger_larger_margin">
+        android:padding="30dp">
 
         <CustomControls.CustomTextView
+            android:visibility="invisible"
             android:id="@+id/name_error"
             android:textSize="@dimen/normal_font"
             android:layout_width="wrap_content"
@@ -34,6 +35,9 @@
             android:textColor="@color/colorRed" />
 
         <CustomControls.CustomEditText
+            android:drawableLeft="@drawable/ic_person"
+            android:drawableTint="@color/colorPrimaryDarker"
+            android:textSize="@dimen/larger_font"
             android:id="@+id/name_family_edt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -43,24 +47,7 @@
             android:padding="@dimen/normal_margin" />
 
         <CustomControls.CustomTextView
-            android:id="@+id/email_error"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="ایمیل نمی تواند خالی باشد"
-            android:layout_marginTop="@dimen/small_margin"
-            android:textSize="@dimen/normal_font"
-            android:textColor="@color/colorRed" />
-
-        <CustomControls.CustomEditText
-            android:id="@+id/email_edt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/small_margin"
-            android:background="@drawable/edit_text_ad"
-            android:hint="ایمیل"
-            android:padding="@dimen/normal_margin" />
-
-        <CustomControls.CustomTextView
+            android:visibility="invisible"
             android:id="@+id/mobile_error"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -70,15 +57,19 @@
             android:textColor="@color/colorRed" />
 
         <CustomControls.CustomEditText
+            android:drawableLeft="@drawable/ic_call"
+            android:drawableTint="@color/colorPrimaryDarker"
+            android:textSize="@dimen/larger_font"
             android:id="@+id/mobile_edt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/small_margin"
             android:background="@drawable/edit_text_ad"
-            android:hint="تلفن همراه (95 60 *** 0915)"
+            android:hint="تلفن همراه"
             android:padding="@dimen/normal_margin" />
 
         <CustomControls.CustomTextView
+            android:visibility="invisible"
             android:id="@+id/stu_number_error"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -88,6 +79,9 @@
             android:textColor="@color/colorRed" />
 
         <CustomControls.CustomEditText
+            android:drawableLeft="@drawable/ic_number"
+            android:drawableTint="@color/colorPrimaryDarker"
+            android:textSize="@dimen/larger_font"
             android:id="@+id/stu_number_edt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -97,6 +91,7 @@
             android:padding="@dimen/normal_margin" />
 
         <CustomControls.CustomTextView
+            android:visibility="invisible"
             android:id="@+id/uni_error"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -106,6 +101,9 @@
             android:textColor="@color/colorRed" />
 
         <CustomControls.CustomEditText
+            android:drawableLeft="@drawable/ic_university"
+            android:drawableTint="@color/colorPrimaryDarker"
+            android:textSize="@dimen/larger_font"
             android:id="@+id/uni_edt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -115,6 +113,7 @@
             android:padding="@dimen/normal_margin" />
 
         <CustomControls.CustomTextView
+            android:visibility="invisible"
             android:id="@+id/field_error"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -124,6 +123,9 @@
             android:textColor="@color/colorRed" />
 
         <CustomControls.CustomEditText
+            android:drawableLeft="@drawable/ic_book_gray"
+            android:drawableTint="@color/colorPrimaryDarker"
+            android:textSize="@dimen/larger_font"
             android:id="@+id/field_edt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -133,5 +135,15 @@
             android:padding="@dimen/normal_margin" />
 
     </LinearLayout>
+
+    <CustomControls.CustomButtonBold
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ثبت نام"
+        android:background="@drawable/sign_up_button"
+        android:textSize="@dimen/large_font"
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="40dp"
+        android:textColor="@color/colorWhite"/>
 
 </LinearLayout>
