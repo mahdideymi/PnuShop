@@ -24,7 +24,7 @@ public class InOrUpActivity extends AppCompatActivity {
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                App.startActivity(LoginActivity.class);
             }
         });
 

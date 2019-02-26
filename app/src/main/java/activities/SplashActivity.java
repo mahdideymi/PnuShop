@@ -7,7 +7,6 @@ import adapters.SharedPrefrencesInfo;
 import ir.punshop.book.ActivityEnhanced;
 import ir.punshop.book.App;
 import ir.punshop.book.R;
-import ir.punshop.book.SetEmailPassActivity;
 import models.SharedPrefUserModel;
 
 public class SplashActivity extends ActivityEnhanced {
@@ -34,7 +33,7 @@ public class SplashActivity extends ActivityEnhanced {
             App.HANDLER.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    goToNextActivity(SetEmailPassActivity.class);
+                    goToNextActivity(InOrUpActivity.class);
                 }
             }, 2000);
         }else{
