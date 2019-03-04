@@ -3,15 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorWhite"
     android:layoutDirection="rtl"
     tools:context="activities.SignUpActivity">
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/back_login" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -22,7 +15,6 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_marginTop="@dimen/large_margin"
-            android:gravity="center"
             android:orientation="vertical"
             android:paddingLeft="30dp"
             android:paddingTop="20dp"
@@ -32,6 +24,7 @@
             <ImageView
                 android:layout_width="60dp"
                 android:layout_height="60dp"
+                android:layout_gravity="center"
                 android:layout_marginBottom="@dimen/largest_margin"
                 android:src="@mipmap/ic_launcher" />
 
@@ -142,6 +135,30 @@
                 android:hint="رشته تحصیلی"
                 android:padding="@dimen/normal_margin"
                 android:textSize="@dimen/larger_font" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <CheckBox
+                    android:id="@+id/role_check_box"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/largest_margin"
+                    android:text="با قوانین موافقم"
+                    android:textColor="@color/colorBlack" />
+
+                <CheckedTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/role_check_box"
+                    android:layout_alignBottom="@id/role_check_box"
+                    android:layout_alignParentLeft="true"
+                    android:gravity="center"
+                    android:text="قوانین"
+                    android:textColor="@color/colorAccent" />
+
+            </RelativeLayout>
 
             <CustomControls.CustomButtonBold
                 android:layout_width="match_parent"
