@@ -1,177 +1,266 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sign_up_scroll"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@color/colorWhite"
     android:layoutDirection="rtl"
     tools:context="activities.SignUpActivity">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-        <LinearLayout
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="@dimen/large_margin"
+        android:orientation="vertical"
+        android:paddingLeft="30dp"
+        android:paddingTop="20dp"
+        android:paddingRight="30dp"
+        android:paddingBottom="30dp">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/largest_margin"
+            android:src="@drawable/sign_up_icon" />
+
+        <CustomControls.CustomTextViewBold
+            android:id="@+id/name_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="نام باید فارسی باشد"
+            android:textColor="@color/colorRed"
+            android:textSize="@dimen/normal_font"
+            android:visibility="invisible" />
+
+        <CustomControls.CustomEditText
+            android:id="@+id/name_family_edt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
+            android:background="@drawable/edit_text_ad"
+            android:drawableLeft="@drawable/ic_person"
+            android:drawableTint="@color/colorPrimaryDarker"
+            android:hint="نام و نام خانوادگی"
+            android:maxLines="1"
+            android:padding="@dimen/normal_margin"
+            android:textSize="@dimen/larger_font" />
+
+        <CustomControls.CustomTextViewBold
+            android:id="@+id/mobile_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            android:text="خطای فرمت تلفن همراه"
+            android:textColor="@color/colorRed"
+            android:textSize="@dimen/normal_font"
+            android:visibility="invisible" />
+
+        <CustomControls.CustomEditText
+            android:id="@+id/mobile_edt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            android:background="@drawable/edit_text_ad"
+            android:drawableLeft="@drawable/ic_call"
+            android:drawableTint="@color/colorPrimaryDarker"
+            android:hint="تلفن همراه"
+            android:inputType="number"
+            android:maxLines="1"
+            android:padding="@dimen/normal_margin"
+            android:textSize="@dimen/larger_font" />
+
+        <CustomControls.CustomTextViewBold
+            android:id="@+id/stu_number_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            android:text="شماره دانشجویی را اشتباه وارد کرده اید"
+            android:textColor="@color/colorRed"
+            android:textSize="@dimen/normal_font"
+            android:visibility="invisible" />
+
+        <CustomControls.CustomEditText
+            android:id="@+id/stu_number_edt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            android:background="@drawable/edit_text_ad"
+            android:drawableLeft="@drawable/ic_number"
+            android:drawableTint="@color/colorPrimaryDarker"
+            android:hint="شماره دانشجویی"
+            android:inputType="number"
+            android:maxLines="1"
+            android:padding="@dimen/normal_margin"
+            android:textSize="@dimen/larger_font" />
+
+        <CustomControls.CustomTextViewBold
+            android:id="@+id/uni_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            android:text="دانشگاه نمی تواند خالی باشد"
+            android:textColor="@color/colorRed"
+            android:textSize="@dimen/normal_font"
+            android:visibility="invisible" />
+
+        <CustomControls.CustomEditText
+            android:id="@+id/uni_edt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            android:background="@drawable/edit_text_ad"
+            android:drawableLeft="@drawable/ic_university"
+            android:drawableTint="@color/colorPrimaryDarker"
+            android:hint="دانشگاه"
+            android:maxLines="2"
+            android:padding="@dimen/normal_margin"
+            android:textSize="@dimen/larger_font" />
+
+        <CustomControls.CustomTextViewBold
+            android:id="@+id/field_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            android:text="رشته تحصیلی نمی تواند خالی باشد"
+            android:textColor="@color/colorRed"
+            android:textSize="@dimen/normal_font"
+            android:visibility="invisible" />
+
+        <CustomControls.CustomEditText
+            android:id="@+id/field_edt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            android:background="@drawable/edit_text_ad"
+            android:drawableLeft="@drawable/ic_book_gray"
+            android:drawableTint="@color/colorPrimaryDarker"
+            android:hint="رشته تحصیلی"
+            android:maxLines="2"
+            android:padding="@dimen/normal_margin"
+            android:textSize="@dimen/larger_font" />
+
+        <CustomControls.CustomTextViewBold
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/large_margin"
-            android:orientation="vertical"
-            android:paddingLeft="30dp"
-            android:paddingTop="20dp"
-            android:paddingRight="30dp"
-            android:paddingBottom="20dp">
+            android:text="تکمیل ایجاد حساب کاربری"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/larger_font" />
 
-            <ImageView
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_gravity="center"
-                android:layout_marginBottom="@dimen/largest_margin"
-                android:src="@mipmap/ic_launcher" />
+        <CustomControls.CustomTextViewBold
+            android:id="@+id/email_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            android:text="رشته تحصیلی نمی تواند خالی باشد"
+            android:textColor="@color/colorRed"
+            android:textSize="@dimen/normal_font"
+            android:visibility="invisible" />
 
-            <CustomControls.CustomTextView
-                android:id="@+id/name_error"
+        <CustomControls.CustomEditText
+            android:id="@+id/email_edt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            android:background="@drawable/edit_text_ad"
+            android:drawableLeft="@drawable/ic_book_gray"
+            android:drawableTint="@color/colorPrimaryDarker"
+            android:hint="ایمیل"
+            android:inputType="textEmailAddress"
+            android:maxLines="2"
+            android:padding="@dimen/normal_margin"
+            android:textSize="@dimen/larger_font" />
+
+        <CustomControls.CustomTextViewBold
+            android:id="@+id/pass_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            android:text="رشته تحصیلی نمی تواند خالی باشد"
+            android:textColor="@color/colorRed"
+            android:textSize="@dimen/normal_font"
+            android:visibility="invisible" />
+
+        <CustomControls.CustomEditText
+            android:id="@+id/pass_edt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            android:background="@drawable/edit_text_ad"
+            android:drawableLeft="@drawable/ic_book_gray"
+            android:drawableTint="@color/colorPrimaryDarker"
+            android:gravity="right"
+            android:hint="رمز عبور"
+            android:inputType="textPassword"
+            android:maxLines="2"
+            android:padding="@dimen/normal_margin"
+            android:textSize="@dimen/larger_font" />
+
+        <CustomControls.CustomTextViewBold
+            android:id="@+id/pass_confirm_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            android:text="رشته تحصیلی نمی تواند خالی باشد"
+            android:textColor="@color/colorRed"
+            android:textSize="@dimen/normal_font"
+            android:visibility="invisible" />
+
+        <CustomControls.CustomEditText
+            android:id="@+id/pass_confirm_edt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            android:background="@drawable/edit_text_ad"
+            android:drawableLeft="@drawable/ic_book_gray"
+            android:drawableTint="@color/colorPrimaryDarker"
+            android:gravity="right"
+            android:hint="تکرار رمز عبور"
+            android:inputType="textPassword"
+            android:maxLines="2"
+            android:padding="@dimen/normal_margin"
+            android:textSize="@dimen/larger_font" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <CustomControls.CustomCheckBox
+                android:id="@+id/role_check_box"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="نام باید فارسی باشد"
-                android:textColor="@color/colorRed"
-                android:textSize="@dimen/normal_font"
-                android:visibility="invisible" />
-
-            <CustomControls.CustomEditText
-                android:id="@+id/name_family_edt"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/edit_text_ad"
-                android:drawableLeft="@drawable/ic_person"
-                android:drawableTint="@color/colorPrimaryDarker"
-                android:hint="نام و نام خانوادگی"
-                android:padding="@dimen/normal_margin"
-                android:textSize="@dimen/larger_font" />
+                android:layout_marginTop="@dimen/largest_margin"
+                android:text="با قوانین موافقم"
+                android:textColor="@color/colorBlack" />
 
             <CustomControls.CustomTextView
-                android:id="@+id/mobile_error"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/small_margin"
-                android:text="خطای فرمت تلفن همراه"
-                android:textColor="@color/colorRed"
-                android:textSize="@dimen/normal_font"
-                android:visibility="invisible" />
+                android:layout_alignTop="@id/role_check_box"
+                android:layout_alignBottom="@id/role_check_box"
+                android:layout_alignParentLeft="true"
+                android:gravity="center"
+                android:text="قوانین"
+                android:textColor="@color/colorAccent" />
 
-            <CustomControls.CustomEditText
-                android:id="@+id/mobile_edt"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/small_margin"
-                android:background="@drawable/edit_text_ad"
-                android:drawableLeft="@drawable/ic_call"
-                android:drawableTint="@color/colorPrimaryDarker"
-                android:hint="تلفن همراه"
-                android:padding="@dimen/normal_margin"
-                android:textSize="@dimen/larger_font" />
+        </RelativeLayout>
 
-            <CustomControls.CustomTextView
-                android:id="@+id/stu_number_error"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/small_margin"
-                android:text="شماره دانشجویی را اشتباه وارد کرده اید"
-                android:textColor="@color/colorRed"
-                android:textSize="@dimen/normal_font"
-                android:visibility="invisible" />
+        <CustomControls.CustomButtonBold
+            android:id="@+id/sign_up_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="@dimen/larger_larger_margin"
+            android:layout_marginRight="40dp"
+            android:background="@drawable/sign_up_button"
+            android:text="ثبت نام"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/large_font" />
 
-            <CustomControls.CustomEditText
-                android:id="@+id/stu_number_edt"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/small_margin"
-                android:background="@drawable/edit_text_ad"
-                android:drawableLeft="@drawable/ic_number"
-                android:drawableTint="@color/colorPrimaryDarker"
-                android:hint="شماره دانشجویی"
-                android:padding="@dimen/normal_margin"
-                android:textSize="@dimen/larger_font" />
+    </LinearLayout>
 
-            <CustomControls.CustomTextView
-                android:id="@+id/uni_error"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/small_margin"
-                android:text="دانشگاه نمی تواند خالی باشد"
-                android:textColor="@color/colorRed"
-                android:textSize="@dimen/normal_font"
-                android:visibility="invisible" />
-
-            <CustomControls.CustomEditText
-                android:id="@+id/uni_edt"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/small_margin"
-                android:background="@drawable/edit_text_ad"
-                android:drawableLeft="@drawable/ic_university"
-                android:drawableTint="@color/colorPrimaryDarker"
-                android:hint="دانشگاه"
-                android:padding="@dimen/normal_margin"
-                android:textSize="@dimen/larger_font" />
-
-            <CustomControls.CustomTextView
-                android:id="@+id/field_error"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/small_margin"
-                android:text="رشته تحصیلی نمی تواند خالی باشد"
-                android:textColor="@color/colorRed"
-                android:textSize="@dimen/normal_font"
-                android:visibility="invisible" />
-
-            <CustomControls.CustomEditText
-                android:id="@+id/field_edt"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/small_margin"
-                android:background="@drawable/edit_text_ad"
-                android:drawableLeft="@drawable/ic_book_gray"
-                android:drawableTint="@color/colorPrimaryDarker"
-                android:hint="رشته تحصیلی"
-                android:padding="@dimen/normal_margin"
-                android:textSize="@dimen/larger_font" />
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <CheckBox
-                    android:id="@+id/role_check_box"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/largest_margin"
-                    android:text="با قوانین موافقم"
-                    android:textColor="@color/colorBlack" />
-
-                <CheckedTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignTop="@id/role_check_box"
-                    android:layout_alignBottom="@id/role_check_box"
-                    android:layout_alignParentLeft="true"
-                    android:gravity="center"
-                    android:text="قوانین"
-                    android:textColor="@color/colorAccent" />
-
-            </RelativeLayout>
-
-            <CustomControls.CustomButtonBold
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:layout_marginTop="@dimen/larger_larger_margin"
-                android:layout_marginRight="40dp"
-                android:background="@drawable/sign_up_button"
-                android:text="ثبت نام"
-                android:textColor="@color/colorWhite"
-                android:textSize="@dimen/large_font" />
-
-        </LinearLayout>
-    </ScrollView>
-
-</RelativeLayout>
+</ScrollView>

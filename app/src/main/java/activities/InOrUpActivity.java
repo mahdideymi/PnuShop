@@ -25,13 +25,15 @@ public class InOrUpActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 App.startActivity(LoginActivity.class);
+                finish();
             }
         });
 
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                App.startActivity(SignUpActivity.class);
+                App.startActivity(SignUpActivity.class , true);
+                finish();
             }
         });
     }
