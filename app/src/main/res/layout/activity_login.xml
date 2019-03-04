@@ -1,9 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    android:gravity="center"
+    android:layoutDirection="rtl"
     tools:context="activities.LoginActivity">
 
-</android.support.constraint.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:orientation="vertical"
+        android:padding="50dp">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:src="@drawable/icon_login" />
+
+        <CustomControls.CustomTextViewBold
+            android:id="@+id/login_email_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="نام باید فارسی باشد"
+            android:textColor="@color/colorRed"
+            android:textSize="@dimen/normal_font"
+            android:visibility="invisible" />
+
+        <CustomControls.CustomEditText
+            android:id="@+id/login_email_edt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_text_ad"
+            android:drawableLeft="@drawable/ic_person"
+            android:drawableTint="@color/colorPrimaryDarker"
+            android:hint="ایمیل"
+            android:maxLines="1"
+            android:padding="@dimen/normal_margin"
+            android:textSize="@dimen/larger_font" />
+
+        <CustomControls.CustomTextViewBold
+            android:id="@+id/login_pass_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="نام باید فارسی باشد"
+            android:textColor="@color/colorRed"
+            android:textSize="@dimen/normal_font"
+            android:visibility="invisible"
+            android:layout_marginTop="@dimen/small_margin"/>
+
+        <CustomControls.CustomEditText
+            android:id="@+id/login_pass_edt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_text_ad"
+            android:drawableLeft="@drawable/ic_security"
+            android:drawableTint="@color/colorPrimaryDarker"
+            android:hint="رمز عبور"
+            android:maxLines="1"
+            android:padding="@dimen/normal_margin"
+            android:textSize="@dimen/larger_font" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/large_margin"
+            android:gravity="left"
+            android:layoutDirection="rtl"
+            android:orientation="horizontal">
+
+            <CustomControls.CustomTextView
+                android:id="@+id/have_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="آیا حساب کاربری ندارید؟"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/normal_font" />
+
+            <CustomControls.CustomTextViewBold
+                android:id="@+id/login_goTo_signup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginRight="@dimen/normal_margin"
+                android:text="ثبت نام"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/large_font" />
+
+        </LinearLayout>
+
+        <CustomControls.CustomButtonBold
+            android:id="@+id/login_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="@dimen/larger_larger_margin"
+            android:layout_marginRight="40dp"
+            android:background="@drawable/sign_up_button"
+            android:text="ثبت نام"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/large_font" />
+
+    </LinearLayout>
+
+</RelativeLayout>
