@@ -105,6 +105,17 @@
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/large_font" />
 
+        <CustomControls.CustomTextViewBold
+            android:id="@+id/forget_pass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginRight="@dimen/normal_margin"
+            android:text="رمز عبور خود را فراموش کرده اید؟"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/large_font"
+            android:layout_marginTop="@dimen/large_margin" />
+
     </LinearLayout>
 
 </RelativeLayout>

@@ -16,7 +16,7 @@ public class LoginActivity extends AppCompatActivity {
 
     CustomEditText email , pass;
     CustomTextViewBold emailError , passError;
-    CustomTextViewBold goToSignUp;
+    CustomTextViewBold goToSignUp , forgetPass;
     CustomButtonBold loginBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +26,7 @@ public class LoginActivity extends AppCompatActivity {
         init();
 
         goToSignUp.setPaintFlags(goToSignUp.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        forgetPass.setPaintFlags(forgetPass.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,6 +45,13 @@ public class LoginActivity extends AppCompatActivity {
                 App.startActivity(SignUpActivity.class , true);
             }
         });
+
+        forgetPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO: implement forget password
+            }
+        });
     }
 
     private void init() {
@@ -53,6 +61,7 @@ public class LoginActivity extends AppCompatActivity {
         passError = findViewById(R.id.login_pass_error);
         goToSignUp = findViewById(R.id.login_goTo_signup);
         loginBtn = findViewById(R.id.login_btn);
+        forgetPass = findViewById(R.id.forget_pass);
     }
 
     private void backgroundSetKind(CustomEditText edt, boolean kindBackground) {
