@@ -12,8 +12,10 @@ import CustomControls.CustomCheckBox;
 import CustomControls.CustomEditText;
 import CustomControls.CustomTextView;
 import CustomControls.CustomTextViewBold;
+import adapters.SharedPrefrencesInfo;
 import ir.punshop.book.App;
 import ir.punshop.book.R;
+import models.SharedPrefUserModel;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -23,6 +25,8 @@ public class SignUpActivity extends AppCompatActivity {
     CustomTextViewBold nameError, telError, stuNumError, unitError, fieldError, emailError, passError, confirmPassError;
     CustomButtonBold signUpBtn;
     CustomCheckBox roleCheck;
+    SharedPrefrencesInfo sharedPrefrencesInfo;
+    SharedPrefUserModel user = new SharedPrefUserModel();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +34,7 @@ public class SignUpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
 
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
-
+        sharedPrefrencesInfo = new SharedPrefrencesInfo();
         init();
 
         signUpBtn.setOnClickListener(new View.OnClickListener() {
@@ -38,6 +42,10 @@ public class SignUpActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (validation()) {
+                    setUserValue();
+                    sharedPrefrencesInfo.saveUser(user);
+                    //TODO: send signUp information to Server
+
                     App.startActivity(MainActivity.class, true);
                     finish();
                 }
@@ -47,6 +55,17 @@ public class SignUpActivity extends AppCompatActivity {
         roleCheck.setChecked(true);
 
 
+    }
+
+    private void setUserValue(){
+        user.setNameAndFamily(nameFamily.getText().toString());
+        user.setEmail(email.getText().toString());
+        user.setTelNumber(telNumber.getText().toString());
+        user.setField(feild.getText().toString());
+        user.setUnit(colligateUnit.getText().toString());
+        user.setToken("111111");
+        //TODO : send request for token and set on sharedprefrences
+        user.setColligateNum(stuNumber.getText().toString());
     }
 
     private void init() {
@@ -180,7 +199,6 @@ public class SignUpActivity extends AppCompatActivity {
             confirmPass.requestFocus();
         }
 
-        //TODO: send signUp information to Server
         return sendToWebService;
 
     }
