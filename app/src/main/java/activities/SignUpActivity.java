@@ -30,7 +30,7 @@ public class SignUpActivity extends AppCompatActivity {
 //        init();
 
     }
-
+//
 //    private void init() {
 //
 //    }
