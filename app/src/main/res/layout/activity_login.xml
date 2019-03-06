@@ -101,7 +101,7 @@
             android:layout_marginTop="@dimen/larger_larger_margin"
             android:layout_marginRight="40dp"
             android:background="@drawable/sign_up_button"
-            android:text="ثبت نام"
+            android:text="ورود"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/large_font" />
 

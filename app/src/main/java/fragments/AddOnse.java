@@ -124,7 +124,7 @@ public class AddOnse extends Fragment {
         saveAd = view.findViewById(R.id.save_ad);
         bookPhoto = view.findViewById(R.id.img_ad_pics);
         takePhoto = view.findViewById(R.id.take_photo_btn);
-        clearAd = view.findViewById(R.id.clear_ad);
+        clearAd = view.findViewById(R.id.clear_prefrence_text);
         toolbarAdText = view.findViewById(R.id.toolbar_ad_text);
         tozihatEditText = view.findViewById(R.id.tozihat_edit_text);
         bookName = view.findViewById(R.id.book_name_create_ad);

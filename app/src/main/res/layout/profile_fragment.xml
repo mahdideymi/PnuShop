@@ -28,7 +28,7 @@
                 android:textSize="16sp" />
 
             <CustomControls.CustomTextView
-                android:id="@+id/clear_ad"
+                android:id="@+id/clear_prefrence_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
@@ -39,11 +39,12 @@
                 android:textSize="12sp" />
 
             <ImageView
+                android:id="@+id/clear_prefrence_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignTop="@id/clear_ad"
-                android:layout_alignBottom="@id/clear_ad"
-                android:layout_toRightOf="@id/clear_ad"
+                android:layout_alignTop="@id/clear_prefrence_text"
+                android:layout_alignBottom="@id/clear_prefrence_text"
+                android:layout_toRightOf="@id/clear_prefrence_text"
                 app:srcCompat="@drawable/ic_exit" />
 
         </RelativeLayout>

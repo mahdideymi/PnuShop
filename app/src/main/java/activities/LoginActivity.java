@@ -9,8 +9,10 @@ import android.view.View;
 import CustomControls.CustomButtonBold;
 import CustomControls.CustomEditText;
 import CustomControls.CustomTextViewBold;
+import adapters.SharedPrefrencesInfo;
 import ir.punshop.book.App;
 import ir.punshop.book.R;
+import models.SharedPrefUserModel;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -18,6 +20,8 @@ public class LoginActivity extends AppCompatActivity {
     CustomTextViewBold emailError , passError;
     CustomTextViewBold goToSignUp , forgetPass;
     CustomButtonBold loginBtn;
+    SharedPrefrencesInfo sharedPrefrencesInfo;
+    SharedPrefUserModel user = new SharedPrefUserModel();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +36,15 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (validation()){
-                    //TODO: send request to server for login and if exist any account go to MainActivity
+                    //TODO: send request to server for login and if exist any account go to MainActivity and save prefrences info
+                    user.setToken("1111");
+                    user.setColligateNum("949696906");
+                    user.setUnit("پیام نور مرکز مشهد");
+                    user.setField("کارشناسی کامیپوتر گرایش فناوری اطلاعات");
+                    user.setTelNumber("09301384709");
+                    user.setEmail("mahdideymi4709@gmail.com");
+                    user.setNameAndFamily("مهدی دیمی");
+                    sharedPrefrencesInfo.saveUser(user);
                     App.startActivity(MainActivity.class , true);
                     finish();
                 }
@@ -55,6 +67,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void init() {
+        sharedPrefrencesInfo = new SharedPrefrencesInfo();
         email = findViewById(R.id.login_email_edt);
         emailError = findViewById(R.id.login_email_error);
         pass = findViewById(R.id.login_pass_edt);

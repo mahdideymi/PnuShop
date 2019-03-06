@@ -9,10 +9,13 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import CustomControls.CustomTextView;
+import activities.InOrUpActivity;
+import adapters.SharedPrefrencesInfo;
 import ir.punshop.book.App;
 import activities.MyAdsActivity;
 import ir.punshop.book.R;
@@ -26,6 +29,9 @@ public class Profile extends Fragment implements View.OnClickListener {
     CustomTextView limitUse;
     CustomTextView aboutUs;
     LinearLayout suggest , favoriteLine , myAdsLine , helperLine , limitUseLine , aboutUsLine;
+    CustomTextView clearPrefrencesText;
+    ImageView clearPrefrencesImg;
+    SharedPrefrencesInfo sharedPrefrencesInfo;
 
     @Nullable
     @Override
@@ -44,10 +50,29 @@ public class Profile extends Fragment implements View.OnClickListener {
         helper.setOnClickListener(this);
         limitUse.setOnClickListener(this);
         aboutUs.setOnClickListener(this);
+
+        clearPrefrencesText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sharedPrefrencesInfo.deletePrefrences();
+                App.startActivity(InOrUpActivity.class , true);
+            }
+        });
+        clearPrefrencesImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sharedPrefrencesInfo.deletePrefrences();
+                App.startActivity(InOrUpActivity.class , true);
+            }
+        });
+
         return view;
     }
 
     private void init(View view) {
+        sharedPrefrencesInfo = new SharedPrefrencesInfo();
+        clearPrefrencesImg = view.findViewById(R.id.clear_prefrence_icon);
+        clearPrefrencesText = view.findViewById(R.id.clear_prefrence_text);
         suggest = view.findViewById(R.id.lineSuggestToFriend);
         favoriteLine = view.findViewById(R.id.lineFavorite);
         myAdsLine = view.findViewById(R.id.lineMyAds);

@@ -49,4 +49,10 @@ public class SharedPrefrencesInfo {
         model.setColligateNum(sharedPreferences.getString(COLLIGATE_NUMBER , "nothing"));
         return model;
     }
+
+    public void deletePrefrences(){
+        @SuppressLint("CommitPrefEdits") SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.clear();
+        editor.apply();
+    }
 }
