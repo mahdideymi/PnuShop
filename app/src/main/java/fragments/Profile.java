@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import CustomControls.CustomButtonBold;
 import CustomControls.CustomTextView;
+import Dialogs.DialogReport;
 import Dialogs.StandardDialog;
 import activities.InOrUpActivity;
 import adapters.SharedPrefrencesInfo;
@@ -37,7 +38,7 @@ public class Profile extends Fragment implements View.OnClickListener {
     LinearLayout suggest , favoriteLine , myAdsLine , helperLine , limitUseLine , aboutUsLine;
     CustomTextView clearPrefrencesText;
     ImageView clearPrefrencesImg;
-    SharedPrefrencesInfo sharedPrefrencesInfo;
+
 
     @Nullable
     @Override
@@ -64,7 +65,6 @@ public class Profile extends Fragment implements View.OnClickListener {
     }
 
     private void init(View view) {
-        sharedPrefrencesInfo = new SharedPrefrencesInfo();
         clearPrefrencesImg = view.findViewById(R.id.clear_prefrence_icon);
         clearPrefrencesText = view.findViewById(R.id.clear_prefrence_text);
         suggest = view.findViewById(R.id.lineSuggestToFriend);
@@ -150,42 +150,8 @@ public class Profile extends Fragment implements View.OnClickListener {
     }
 
     private void showDialogForClearPrefrences(){
-        final StandardDialog dialog = new StandardDialog("خروج از حساب کاربری" , "آیا قصد خروج از حساب کاربری را دارید؟" , App.CONTEXT);
-        CustomButtonBold yes = dialog.findViewById(R.id.dialog_right_btn);
-        yes.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sharedPrefrencesInfo.deletePrefrences();
-                App.startActivity(InOrUpActivity.class , true);
-            }
-        });
-        CustomButtonBold no = dialog.findViewById(R.id.dialog_left_btn);
-        no.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-            }
-        });
+        final StandardDialog dialog = new StandardDialog("خروج از حساب کاربری" , "آیا قصد خروج از حساب کاربری را دارید؟" , App.ACTIVITY);
         dialog.show();
-//        final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-//        builder.setTitle("خروج از حساب کاربری");
-//        builder.setMessage("آیا می خواهید از حساب کاربری خود خارج شوید؟");
-//        builder.setPositiveButton("تایید",
-//                new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialog, int which) {
-//                        sharedPrefrencesInfo.deletePrefrences();
-//                        App.startActivity(InOrUpActivity.class , true);
-//                    }
-//                });
-//        builder.setNegativeButton("لغو", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialog, int which) {
-//                dialog.dismiss();
-//            }
-//        });
-//        builder.setCancelable(false);
-//        builder.show();
     }
 
 }
