@@ -22,12 +22,14 @@ public class StandardDialog extends Dialog {
     private CustomTextView text;
     private CustomButtonBold yes , no;
     private String titleStr , textStr;
-    SharedPrefrencesInfo sharedPrefrencesInfo;
+    private int mode;
+    private SharedPrefrencesInfo sharedPrefrencesInfo;
 
-    public StandardDialog(String title , String text , Context context) {
+    public StandardDialog(String title , String text , Context context , int mode) {
         super(context);
         this.titleStr = title;
         this.textStr = text;
+        this.mode = mode;
     }
 
     @Override
@@ -44,8 +46,14 @@ public class StandardDialog extends Dialog {
         yes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sharedPrefrencesInfo.deletePrefrences();
-                App.startActivity(InOrUpActivity.class , true);
+                switch (mode){
+                    case 1:
+                        clearPrefrences();
+                        break;
+                    case 2:
+                        nothingHappend();
+                        break;
+                }
             }
         });
 
@@ -63,5 +71,13 @@ public class StandardDialog extends Dialog {
         text = findViewById(R.id.dialog_text);
         yes = findViewById(R.id.dialog_right_btn);
         no = findViewById(R.id.dialog_left_btn);
+    }
+
+    private void clearPrefrences(){
+        sharedPrefrencesInfo.deletePrefrences();
+        App.startActivity(InOrUpActivity.class , true);
+    }
+    private void nothingHappend(){
+        dismiss();
     }
 }

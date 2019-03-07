@@ -150,7 +150,7 @@ public class Profile extends Fragment implements View.OnClickListener {
     }
 
     private void showDialogForClearPrefrences(){
-        final StandardDialog dialog = new StandardDialog("خروج از حساب کاربری" , "آیا قصد خروج از حساب کاربری را دارید؟" , App.ACTIVITY);
+        final StandardDialog dialog = new StandardDialog("خروج از حساب کاربری" , "آیا قصد خروج از حساب کاربری را دارید؟" , App.ACTIVITY , 1);
         dialog.show();
     }
 

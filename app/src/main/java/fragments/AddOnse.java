@@ -28,6 +28,7 @@ import CustomControls.CustomAutoComplete;
 import CustomControls.CustomButton;
 import CustomControls.CustomEditText;
 import CustomControls.CustomTextView;
+import Dialogs.StandardDialog;
 import ir.punshop.book.App;
 import ir.punshop.book.R;
 
@@ -36,6 +37,7 @@ public class AddOnse extends Fragment {
     private static final int CAMERA_REQUEST = 1888;
     private static final int MY_CAMERA_PERMISSION_CODE = 100;
 
+    CustomTextView errorImage;
     NestedScrollView scrollView;
     CustomAutoComplete autoCompleteField;
     CustomButton takePhoto;
@@ -43,7 +45,8 @@ public class AddOnse extends Fragment {
     ImageView bookPhoto;
     CustomTextView clearAd, toolbarAdText;
     CustomEditText tozihatEditText, bookName, bookAuther, bookPayment, phoneNumber;
-    String[] units = {"کامپیوتر گرایش فناوری اطلاعات" , "هوافضا ورودی ها 95 به بعد" ,
+    //TODO: must read all of field read from server
+    String[] fields = {"کامپیوتر گرایش فناوری اطلاعات" , "هوافضا ورودی ها 95 به بعد" ,
             "الهیات" , "حقوق مدنی" , "معماری و نقشه کشی" , "عمران ورودی های 93 به بعد"
             , "مهندسی خودرو" , "حسابداری" , "علوم تربیتی" , "مدیریت بازرگانی"};
     ArrayAdapter <String> adapter ;
@@ -62,6 +65,10 @@ public class AddOnse extends Fragment {
             @Override
             public void onClick(View v) {
                 validationData();
+                if (bookPhoto.getVisibility() == View.GONE){
+                    StandardDialog dialog = new StandardDialog("اخطار" , "لطفا عکس کتاب را هم بارگذاری نمایید." , App.ACTIVITY , 2);
+                    dialog.show();
+                }
             }
         });
 
@@ -105,6 +112,8 @@ public class AddOnse extends Fragment {
                 clearAllViews();
             }
         });
+
+
         return view;
     }
 
@@ -118,7 +127,8 @@ public class AddOnse extends Fragment {
     }
 
     private void initViews(View view) {
-        adapter = new ArrayAdapter<>(App.CONTEXT, R.layout.item_auto_complete, units);
+        errorImage = view.findViewById(R.id.add_onse_error_image);
+        adapter = new ArrayAdapter<>(App.CONTEXT, R.layout.item_auto_complete, fields);
         autoCompleteField = view.findViewById(R.id.autoCompleteUnit);
         scrollView = view.findViewById(R.id.scrollViewAddAd);
         saveAd = view.findViewById(R.id.save_ad);
@@ -156,7 +166,6 @@ public class AddOnse extends Fragment {
     }
 
     private void validationData() {
-
         backgroundSetKind(phoneNumber, true, 'N');
         backgroundSetKind(tozihatEditText, true, 'N');
         backgroundSetKind(bookName, true, 'N');
@@ -191,7 +200,7 @@ public class AddOnse extends Fragment {
             phoneNumber.requestFocus();
         }
         if (sendToWebService) {
-            //TODO : send all data of ad to web service
+            //TODO : send all data of new onse of ad to web service
         }
     }
 

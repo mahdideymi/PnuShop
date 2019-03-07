@@ -1,22 +1,17 @@
 package activities;
 
-import android.Manifest;
-import android.content.DialogInterface;
+
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.support.design.widget.AppBarLayout;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.content.res.ResourcesCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +35,7 @@ public class ShowInfoActivity extends ActivityEnhanced {
     RecyclerMohsoolatMoshabehAdapter adapter;
     List<StoreRecyclerModel> items;
     CustomButton sendReportBtn;
+    ImageView shareBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,7 +69,6 @@ public class ShowInfoActivity extends ActivityEnhanced {
             @Override
             public void onClick(View v) {
                 DialogReport dialogReport = new DialogReport(App.ACTIVITY);
-                dialogReport.setCancelable(false);
                 dialogReport.show();
             }
         });
@@ -88,9 +83,27 @@ public class ShowInfoActivity extends ActivityEnhanced {
                 }
 //            }
         });
+
+        shareBtn = findViewById(R.id.share_btn);
+        shareBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                shareOnseToFriend();
+            }
+        });
         setupToolbar();
         setupRecyclerItems();
         setupRecyclerView();
+    }
+
+    private void shareOnseToFriend() {
+        String shareBody = "روی لینک زیر کلیک کنید تا آگهی کتاب فلان را ببینید.";
+        Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+        sharingIntent.setType("text/plain");
+        sharingIntent.putExtra(Intent.EXTRA_SUBJECT , "\n\n");
+        sharingIntent.putExtra(Intent.EXTRA_TEXT , shareBody);
+        startActivity(Intent.createChooser(sharingIntent , "کتاب فلان"));
+
     }
 
     private void setupRecyclerView() {
