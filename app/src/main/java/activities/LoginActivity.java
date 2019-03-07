@@ -4,17 +4,22 @@ import android.graphics.Paint;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
+import android.widget.Toast;
+
+import java.util.regex.Pattern;
 
 import CustomControls.CustomButtonBold;
 import CustomControls.CustomEditText;
 import CustomControls.CustomTextViewBold;
 import adapters.SharedPrefrencesInfo;
+import ir.punshop.book.ActivityEnhanced;
 import ir.punshop.book.App;
 import ir.punshop.book.R;
 import models.SharedPrefUserModel;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends ActivityEnhanced {
 
     CustomEditText email , pass;
     CustomTextViewBold emailError , passError;
@@ -26,7 +31,6 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
         init();
 
         goToSignUp.setPaintFlags(goToSignUp.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
@@ -113,14 +117,24 @@ public class LoginActivity extends AppCompatActivity {
             sendToWebService = false;
             backgroundSetKind(email , false);
             email.requestFocus();
-        }else if(passStr.isEmpty()){
+        }else if (!isValidEmail(emailStr)){
+            emailError.setVisibility(View.VISIBLE);
+            emailError.setText("ایمیل را به درستی وارد نمایید.");
+            sendToWebService = false;
+            backgroundSetKind(email , false);
+        }else if(passStr.isEmpty()) {
             passError.setVisibility(View.VISIBLE);
             passError.setText("رمز عبور نمی تواند خالی باشد.");
             sendToWebService = false;
-            backgroundSetKind(pass , false);
+            backgroundSetKind(pass, false);
             pass.requestFocus();
         }
 
         return sendToWebService;
+    }
+
+    private boolean isValidEmail(String email) {
+        Pattern pattern = Patterns.EMAIL_ADDRESS;
+        return pattern.matcher(email).matches();
     }
 }

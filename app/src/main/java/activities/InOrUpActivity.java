@@ -6,10 +6,11 @@ import android.view.View;
 import android.widget.Toast;
 
 import CustomControls.CustomButton;
+import ir.punshop.book.ActivityEnhanced;
 import ir.punshop.book.App;
 import ir.punshop.book.R;
 
-public class InOrUpActivity extends AppCompatActivity {
+public class InOrUpActivity extends ActivityEnhanced {
 
     CustomButton signIn;
     CustomButton signUp;

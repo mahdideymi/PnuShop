@@ -107,7 +107,7 @@
             android:textSize="@dimen/normal_font"
             android:visibility="invisible" />
 
-        <CustomControls.CustomEditText
+        <CustomControls.CustomAutoComplete
             android:id="@+id/uni_edt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -130,7 +130,7 @@
             android:textSize="@dimen/normal_font"
             android:visibility="invisible" />
 
-        <CustomControls.CustomEditText
+        <CustomControls.CustomAutoComplete
             android:id="@+id/field_edt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -5,28 +5,39 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.ArrayAdapter;
 import android.widget.ScrollView;
 
+import CustomControls.CustomAutoComplete;
 import CustomControls.CustomButtonBold;
 import CustomControls.CustomCheckBox;
 import CustomControls.CustomEditText;
 import CustomControls.CustomTextView;
 import CustomControls.CustomTextViewBold;
 import adapters.SharedPrefrencesInfo;
+import ir.punshop.book.ActivityEnhanced;
 import ir.punshop.book.App;
 import ir.punshop.book.R;
 import models.SharedPrefUserModel;
 
-public class SignUpActivity extends AppCompatActivity {
+public class SignUpActivity extends ActivityEnhanced {
 
     CustomEditText nameFamily, telNumber, stuNumber, email, pass, confirmPass;
-    CustomEditText colligateUnit, feild;
     ScrollView scrollView;
     CustomTextViewBold nameError, telError, stuNumError, unitError, fieldError, emailError, passError, confirmPassError;
     CustomButtonBold signUpBtn;
     CustomCheckBox roleCheck;
     SharedPrefrencesInfo sharedPrefrencesInfo;
     SharedPrefUserModel user = new SharedPrefUserModel();
+    CustomAutoComplete fieldAuto , unitsAuto;
+    String[] fields = {"کامپیوتر گرایش فناوری اطلاعات" , "هوافضا ورودی ها 95 به بعد" ,
+            "الهیات" , "حقوق مدنی" , "معماری و نقشه کشی" , "عمران ورودی های 93 به بعد"
+            , "مهندسی خودرو" , "حسابداری" , "علوم تربیتی" , "مدیریت بازرگانی"};
+    ArrayAdapter<String> adapterFields;
+    String[] units = {"دانشگاه پیام نور مرکز مشهد" , "دانشگاه پیام نور مرکز همدان" ,
+            "دانشگاه پیام نور مرکز تهران" , "دانشگاه پیام نور مرکز زاهدان" , "دانشگاه پیام نور مرکز سیستان و بلوچستان" , "دانشگاه پیام نور مرکز زنجان"
+            , "دانشگاه پیام نور مرکز مراغه" , "دانشگاه پیام نور مرکز بیرجند" , "دانشگاه پیام نور مرکز نجف آباد" , "دانشگاه پیام نور مرکز گرگان"};
+    ArrayAdapter<String>adapterUnits;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +47,9 @@ public class SignUpActivity extends AppCompatActivity {
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
         sharedPrefrencesInfo = new SharedPrefrencesInfo();
         init();
+
+        fieldAuto.setAdapter(adapterFields);
+        unitsAuto.setAdapter(adapterUnits);
 
         signUpBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,14 +75,18 @@ public class SignUpActivity extends AppCompatActivity {
         user.setNameAndFamily(nameFamily.getText().toString());
         user.setEmail(email.getText().toString());
         user.setTelNumber(telNumber.getText().toString());
-        user.setField(feild.getText().toString());
-        user.setUnit(colligateUnit.getText().toString());
+        user.setField(fieldAuto.getText().toString());
+        user.setUnit(unitsAuto.getText().toString());
         user.setToken("111111");
         //TODO : send request for token and set on sharedprefrences
         user.setColligateNum(stuNumber.getText().toString());
     }
 
     private void init() {
+        adapterFields = new ArrayAdapter<>(App.CONTEXT,R.layout.item_auto_complete , fields);
+        adapterUnits = new ArrayAdapter<>(App.CONTEXT,R.layout.item_auto_complete , units);
+        fieldAuto = findViewById(R.id.field_edt);
+        unitsAuto = findViewById(R.id.uni_edt);
         scrollView = findViewById(R.id.sign_up_scroll);
         roleCheck = findViewById(R.id.role_check_box);
         signUpBtn = findViewById(R.id.sign_up_btn);
@@ -78,9 +96,7 @@ public class SignUpActivity extends AppCompatActivity {
         telError = findViewById(R.id.mobile_error);
         stuNumber = findViewById(R.id.stu_number_edt);
         stuNumError = findViewById(R.id.stu_number_error);
-        colligateUnit = findViewById(R.id.uni_edt);
         unitError = findViewById(R.id.uni_error);
-        feild = findViewById(R.id.field_edt);
         fieldError = findViewById(R.id.field_error);
         email = findViewById(R.id.email_edt);
         emailError = findViewById(R.id.email_error);
@@ -88,6 +104,28 @@ public class SignUpActivity extends AppCompatActivity {
         passError = findViewById(R.id.pass_error);
         confirmPass = findViewById(R.id.pass_confirm_edt);
         confirmPassError = findViewById(R.id.pass_confirm_error);
+    }
+
+    private void backgroundSetKindAuto(CustomAutoComplete edt, boolean kindBackground, char downOrUp) {
+        int sdk = Build.VERSION.SDK_INT;
+        if (kindBackground) {
+            if (sdk < Build.VERSION_CODES.JELLY_BEAN) {
+                edt.setBackgroundDrawable(getResources().getDrawable(R.drawable.edit_text_ad));
+            } else {
+                edt.setBackgroundDrawable(getResources().getDrawable(R.drawable.edit_text_ad));
+            }
+        } else {
+            if (sdk < Build.VERSION_CODES.JELLY_BEAN) {
+                edt.setBackgroundDrawable(getResources().getDrawable(R.drawable.validation_false_add_ad));
+            } else {
+                edt.setBackgroundDrawable(getResources().getDrawable(R.drawable.validation_false_add_ad));
+            }
+        }
+        if (downOrUp == 'U') {
+            scrollView.fullScroll(ScrollView.FOCUS_UP);
+        } else if (downOrUp == 'D') {
+            scrollView.fullScroll(ScrollView.FOCUS_DOWN);
+        }
     }
 
     private void backgroundSetKind(CustomEditText edt, boolean kindBackground, char downOrUp) {
@@ -116,8 +154,8 @@ public class SignUpActivity extends AppCompatActivity {
         backgroundSetKind(nameFamily, true, 'N');
         backgroundSetKind(telNumber, true, 'N');
         backgroundSetKind(stuNumber, true, 'N');
-        backgroundSetKind(colligateUnit, true, 'N');
-        backgroundSetKind(feild, true, 'N');
+        backgroundSetKindAuto(unitsAuto, true, 'N');
+        backgroundSetKindAuto(fieldAuto, true, 'N');
         backgroundSetKind(email, true, 'N');
         backgroundSetKind(pass, true, 'N');
         backgroundSetKind(confirmPass, true, 'N');
@@ -137,8 +175,8 @@ public class SignUpActivity extends AppCompatActivity {
         String nameFamilyStr = nameFamily.getText().toString();
         String telNumberStr = telNumber.getText().toString();
         String stuNmberStr = stuNumber.getText().toString();
-        String unitStr = colligateUnit.getText().toString();
-        String feildStr = feild.getText().toString();
+        String unitStr = unitsAuto.getText().toString();
+        String feildStr = fieldAuto.getText().toString();
         String emailStr = email.getText().toString();
         String passStr = pass.getText().toString();
         String confirmPassStr = confirmPass.getText().toString();
@@ -165,15 +203,15 @@ public class SignUpActivity extends AppCompatActivity {
             unitError.setVisibility(View.VISIBLE);
             unitError.setText("دانشگاه نمی تواند خالی باشد.");
             sendToWebService = false;
-            backgroundSetKind(colligateUnit, false, 'U');
-            colligateUnit.requestFocus();
+            backgroundSetKindAuto(unitsAuto, false, 'U');
+            unitsAuto.requestFocus();
         } else if (feildStr.isEmpty()) {
             fieldError.setVisibility(View.VISIBLE);
             fieldError.setText("رشته خود را به درستی وارد نمایید.");
             sendToWebService = false;
-            backgroundSetKind(feild, false, 'U');
-            feild.requestFocus();
-        } else if (isEmailValid(emailStr) || emailStr.isEmpty()) {
+            backgroundSetKindAuto(fieldAuto, false, 'U');
+            fieldAuto.requestFocus();
+        } else if (!isEmailValid(emailStr) || emailStr.isEmpty()) {
             emailError.setVisibility(View.VISIBLE);
             emailError.setText("ایمیل خود را به درستی وارد نمایید.");
             sendToWebService = false;
