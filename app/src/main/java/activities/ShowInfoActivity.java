@@ -72,14 +72,9 @@ public class ShowInfoActivity extends ActivityEnhanced {
         sendReportBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new DialogReport(App.ACTIVITY )
-                        .setListener(new DialogInterface.OnDismissListener() {
-                            @Override
-                            public void onDismiss(DialogInterface dialog) {
-                                //Toast.makeText(ShowInfoActivity.this, "onDismiss", Toast.LENGTH_SHORT).show();
-                            }
-                        })
-                        .show();
+                DialogReport dialogReport = new DialogReport(App.ACTIVITY);
+                dialogReport.setCancelable(false);
+                dialogReport.show();
             }
         });
 
@@ -87,12 +82,6 @@ public class ShowInfoActivity extends ActivityEnhanced {
         goToCallApp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                if (ContextCompat.checkSelfPermission(ShowInfoActivity.this ,
-//                        Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED){
-//                    ActivityCompat.requestPermissions(ShowInfoActivity.this ,
-//                            new String[]{Manifest.permission.CALL_PHONE},
-//                            1);
-//                }else{
                     Intent callIntent = new Intent(Intent.ACTION_DIAL);
                     callIntent.setData(Uri.parse(txtNumber));
                     startActivity(callIntent);

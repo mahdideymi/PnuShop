@@ -2,9 +2,14 @@ package Dialogs;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.MotionEvent;
+import android.view.View;
 import android.view.Window;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,34 +23,47 @@ public class DialogReport extends Dialog {
 
     private List<ReportRecyclerModel> list;
 
-    private OnDismissListener listener;
-    private LinearLayoutManager linearLayoutManager;
-
     public DialogReport( Context context) {
         super(context);
-        init();
     }
 
-    public DialogReport( Context context, int themeResId) {
-        super(context, themeResId);
-        init();
-    }
-
-    private void init(){
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.dialog_report);
-
         getItems();
     }
+
 
     private void getItems() {
         list = new ArrayList<>();
         RecyclerView recyclerView = findViewById(R.id.report_recycler);
         initialRecyclerItem();
-        linearLayoutManager = new LinearLayoutManager(App.CONTEXT , LinearLayoutManager.VERTICAL , false);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(App.CONTEXT, LinearLayoutManager.VERTICAL, false);
         RecyclerReportAdapter adapter = new RecyclerReportAdapter(list);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(adapter);
+        recyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
+            @Override
+            public boolean onInterceptTouchEvent(@NonNull RecyclerView recyclerView, @NonNull MotionEvent motionEvent) {
+                //TODO: send report for server and check this
+                Toast.makeText(App.CONTEXT, "تخلف با موفقیت به ثبت رسید.", Toast.LENGTH_SHORT).show();
+                dismiss();
+                return true;
+            }
+
+            @Override
+            public void onTouchEvent(@NonNull RecyclerView recyclerView, @NonNull MotionEvent motionEvent) {
+                //TODO: send report for server and check this
+                Toast.makeText(App.CONTEXT, "تخلف با موفقیت به ثبت رسید.", Toast.LENGTH_SHORT).show();
+                dismiss();
+            }
+
+            @Override
+            public void onRequestDisallowInterceptTouchEvent(boolean b) {
+            }
+        });
     }
 
     private void initialRecyclerItem() {
@@ -64,18 +82,5 @@ public class DialogReport extends Dialog {
         ReportRecyclerModel model = new ReportRecyclerModel();
         model.setText(string);
         list.add(model);
-    }
-
-    public DialogReport setListener(OnDismissListener listener) {
-        this.listener = listener;
-        return this;
-    }
-
-    @Override
-    public void dismiss() {
-        super.dismiss();
-        if(listener != null){
-            listener.onDismiss(this);
-        }
     }
 }

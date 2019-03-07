@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="right"
+    android:background="@color/colorPrimary"
+    android:layoutDirection="rtl"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorAccent">
+
+        <CustomControls.CustomTextViewBold
+            android:id="@+id/dialog_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="12dp"
+            android:gravity="start"
+            android:textColor="@android:color/white"
+            tools:text="گزارش خرابی آگهی" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="12dp"
+            app:srcCompat="@drawable/ic_info_outline" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <CustomControls.CustomTextView
+            android:id="@+id/dialog_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/larger_larger_margin"
+            android:gravity="start"
+            android:textColor="@color/colorBlack"
+            android:text="گزارش خرابی آگهی" />
+
+        <LinearLayout
+            android:background="@drawable/button_ad_fragment"
+            android:layoutDirection="rtl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dialog_text"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <CustomControls.CustomButtonBold
+                android:id="@+id/dialog_right_btn"
+                android:text="تایید"
+                android:textColor="@color/colorWhite"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:background="@drawable/diglog_button_right" />
+
+            <CustomControls.CustomButtonBold
+                android:id="@+id/dialog_left_btn"
+                android:text="لغو"
+                android:textColor="@color/colorWhite"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:background="@drawable/diglog_button_lef" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

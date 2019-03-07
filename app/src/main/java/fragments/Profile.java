@@ -1,6 +1,8 @@
 package fragments;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -9,11 +11,15 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import CustomControls.CustomButtonBold;
 import CustomControls.CustomTextView;
+import Dialogs.StandardDialog;
 import activities.InOrUpActivity;
 import adapters.SharedPrefrencesInfo;
 import ir.punshop.book.App;
@@ -51,20 +57,8 @@ public class Profile extends Fragment implements View.OnClickListener {
         limitUse.setOnClickListener(this);
         aboutUs.setOnClickListener(this);
 
-        clearPrefrencesText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sharedPrefrencesInfo.deletePrefrences();
-                App.startActivity(InOrUpActivity.class , true);
-            }
-        });
-        clearPrefrencesImg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sharedPrefrencesInfo.deletePrefrences();
-                App.startActivity(InOrUpActivity.class , true);
-            }
-        });
+        clearPrefrencesText.setOnClickListener(this);
+        clearPrefrencesImg.setOnClickListener(this);
 
         return view;
     }
@@ -130,6 +124,12 @@ public class Profile extends Fragment implements View.OnClickListener {
                 Toast.makeText(App.ACTIVITY, "درباره ما", Toast.LENGTH_SHORT).show();
                 //TODO: about us
                 break;
+            case R.id.clear_prefrence_icon:
+                showDialogForClearPrefrences();
+                break;
+            case R.id.clear_prefrence_text:
+                showDialogForClearPrefrences();
+                break;
         }
     }
 
@@ -147,6 +147,45 @@ public class Profile extends Fragment implements View.OnClickListener {
         Intent intent = new Intent(App.ACTIVITY , MyAdsActivity.class);
         intent.putExtra("toolbarTxt" , extrasString);
         startActivity(intent);
+    }
+
+    private void showDialogForClearPrefrences(){
+        final StandardDialog dialog = new StandardDialog("خروج از حساب کاربری" , "آیا قصد خروج از حساب کاربری را دارید؟" , App.CONTEXT);
+        CustomButtonBold yes = dialog.findViewById(R.id.dialog_right_btn);
+        yes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sharedPrefrencesInfo.deletePrefrences();
+                App.startActivity(InOrUpActivity.class , true);
+            }
+        });
+        CustomButtonBold no = dialog.findViewById(R.id.dialog_left_btn);
+        no.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
+//        final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+//        builder.setTitle("خروج از حساب کاربری");
+//        builder.setMessage("آیا می خواهید از حساب کاربری خود خارج شوید؟");
+//        builder.setPositiveButton("تایید",
+//                new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        sharedPrefrencesInfo.deletePrefrences();
+//                        App.startActivity(InOrUpActivity.class , true);
+//                    }
+//                });
+//        builder.setNegativeButton("لغو", new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialog, int which) {
+//                dialog.dismiss();
+//            }
+//        });
+//        builder.setCancelable(false);
+//        builder.show();
     }
 
 }

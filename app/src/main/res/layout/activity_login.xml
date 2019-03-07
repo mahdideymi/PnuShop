@@ -39,6 +39,7 @@
             android:drawableLeft="@drawable/ic_person"
             android:drawableTint="@color/colorPrimaryDarker"
             android:hint="ایمیل"
+            android:inputType="textEmailAddress"
             android:maxLines="1"
             android:padding="@dimen/normal_margin"
             android:textSize="@dimen/larger_font" />
@@ -47,11 +48,11 @@
             android:id="@+id/login_pass_error"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
             android:text="نام باید فارسی باشد"
             android:textColor="@color/colorRed"
             android:textSize="@dimen/normal_font"
-            android:visibility="invisible"
-            android:layout_marginTop="@dimen/small_margin"/>
+            android:visibility="invisible" />
 
         <CustomControls.CustomEditText
             android:id="@+id/login_pass_edt"
@@ -60,7 +61,9 @@
             android:background="@drawable/edit_text_ad"
             android:drawableLeft="@drawable/ic_security"
             android:drawableTint="@color/colorPrimaryDarker"
+            android:gravity="right"
             android:hint="رمز عبور"
+            android:inputType="textPassword"
             android:maxLines="1"
             android:padding="@dimen/normal_margin"
             android:textSize="@dimen/larger_font" />
@@ -110,11 +113,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/large_margin"
             android:layout_marginRight="@dimen/normal_margin"
             android:text="رمز عبور خود را فراموش کرده اید؟"
             android:textColor="@color/colorAccent"
-            android:textSize="@dimen/large_font"
-            android:layout_marginTop="@dimen/large_margin" />
+            android:textSize="@dimen/large_font" />
 
     </LinearLayout>
 

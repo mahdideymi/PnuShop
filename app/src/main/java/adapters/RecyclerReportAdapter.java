@@ -10,7 +10,6 @@ import android.widget.Toast;
 
 import java.util.List;
 
-import Dialogs.DialogReport;
 import ir.punshop.book.App;
 import ir.punshop.book.R;
 import models.ReportRecyclerModel;
@@ -46,7 +45,7 @@ public class RecyclerReportAdapter extends RecyclerView.Adapter<RecyclerReportAd
         return list.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
         public TextView text;
         ViewHolder(View itemView) {
