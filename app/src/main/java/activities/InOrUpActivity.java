@@ -1,9 +1,7 @@
 package activities;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
 import CustomControls.CustomButton;
 import ir.punshop.book.ActivityEnhanced;

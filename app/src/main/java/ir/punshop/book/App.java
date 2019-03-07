@@ -8,7 +8,12 @@ import android.content.res.AssetManager;
 import android.graphics.Typeface;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Toast;
+
+import CustomControls.CustomTextViewBold;
 
 public class App extends Application {
 
@@ -32,6 +37,22 @@ public class App extends Application {
             ACTIVITY.finish();
         }
     }
+
+    public static void toast(String message){
+        toast(message , Toast.LENGTH_SHORT);
+    }
+
+    public static void toast(String message , int duration){
+        View view = INFLATER.inflate(R.layout.toast , null);
+        CustomTextViewBold txtMessage = view.findViewById(R.id.toastMessage);
+        txtMessage.setText(message);
+        Toast toast = new Toast(CONTEXT);
+        toast.setDuration(duration);
+        toast.setGravity(Gravity.BOTTOM , 0 , 250);
+        toast.setView(view);
+        toast.show();
+    }
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -40,6 +61,5 @@ public class App extends Application {
         AssetManager assetManager = getAssets();
         FONT_BOLD = Typeface.createFromAsset(assetManager , "font/iran_sans.TTF");
         FONT_NORMAL = Typeface.createFromAsset(assetManager , "font/iran_sans_light.TTF");
-
     }
 }

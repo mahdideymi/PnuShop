@@ -7,9 +7,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MotionEvent;
-import android.view.View;
 import android.view.Window;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,7 +46,7 @@ public class DialogReport extends Dialog {
             @Override
             public boolean onInterceptTouchEvent(@NonNull RecyclerView recyclerView, @NonNull MotionEvent motionEvent) {
                 //TODO: send report for server and check this
-                Toast.makeText(App.CONTEXT, "تخلف با موفقیت به ثبت رسید.", Toast.LENGTH_SHORT).show();
+                App.toast("تخلف با موفقیت به ثبت رسید.");
                 dismiss();
                 return true;
             }
@@ -56,8 +54,9 @@ public class DialogReport extends Dialog {
             @Override
             public void onTouchEvent(@NonNull RecyclerView recyclerView, @NonNull MotionEvent motionEvent) {
                 //TODO: send report for server and check this
-                Toast.makeText(App.CONTEXT, "تخلف با موفقیت به ثبت رسید.", Toast.LENGTH_SHORT).show();
+                App.toast("تخلف با موفقیت به ثبت رسید.");
                 dismiss();
+
             }
 
             @Override

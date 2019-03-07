@@ -5,7 +5,6 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import fragments.AddOnse;
 import fragments.SpecialSuggest;
@@ -71,7 +70,7 @@ public class MainActivity extends ActivityEnhanced {
             finish();
         }
         this.doubleBackToExitPressedOne = true;
-        Toast.makeText(MainActivity.this, "برای خروج لطفا دوباره بزنید.", Toast.LENGTH_SHORT).show();
+        App.toast("برای خروج لطفا دوباره بزنید.");
         App.HANDLER.postDelayed(new Runnable() {
             @Override
             public void run() {

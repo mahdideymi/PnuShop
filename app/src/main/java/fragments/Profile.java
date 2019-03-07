@@ -11,18 +11,12 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import CustomControls.CustomButtonBold;
 import CustomControls.CustomTextView;
-import Dialogs.DialogReport;
 import Dialogs.StandardDialog;
-import activities.InOrUpActivity;
-import adapters.SharedPrefrencesInfo;
 import ir.punshop.book.App;
 import activities.MyAdsActivity;
 import ir.punshop.book.R;

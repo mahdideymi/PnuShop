@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import java.util.List;
 
@@ -41,20 +40,20 @@ public class RecyclerMyAdsAdapter extends RecyclerView.Adapter<RecyclerMyAdsAdap
         viewHolder.shareMyAds.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(App.ACTIVITY, "share button is clicked", Toast.LENGTH_SHORT).show();
+                App.toast("share button is clicked.");
             }
         });
         viewHolder.editMyAds.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(App.ACTIVITY, "edit My Ads Clicked", Toast.LENGTH_SHORT).show();
+                App.toast("edit My Ads clicked.");
             }
         });
 
         viewHolder.isSelledMyAds.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(App.ACTIVITY, "Ads is Selled.", Toast.LENGTH_SHORT).show();
+                App.toast("Ads is Sell");
             }
         });
     }

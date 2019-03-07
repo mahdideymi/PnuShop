@@ -30,7 +30,6 @@ public class SpecialSuggest extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.special_suggest_by_field, null);
-
         list = new ArrayList<>();
         initRecyclerItems();
         recyclerView = view.findViewById(R.id.specialSuggestRecycler);

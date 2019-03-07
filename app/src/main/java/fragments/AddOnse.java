@@ -22,7 +22,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ScrollView;
-import android.widget.Toast;
 
 import CustomControls.CustomAutoComplete;
 import CustomControls.CustomButton;
@@ -81,7 +80,7 @@ public class AddOnse extends Fragment {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (s.length() == 249) {
-                    Toast.makeText(App.ACTIVITY, "توضیحات شما بیشتر از حد مجاز است!!!", Toast.LENGTH_LONG).show();
+                    App.toast("توضیحات شما بیشتر از حد مجاز است!");
                 }
             }
 
@@ -213,12 +212,12 @@ public class AddOnse extends Fragment {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == MY_CAMERA_PERMISSION_CODE) {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                Toast.makeText(App.ACTIVITY, "camera permission granted", Toast.LENGTH_LONG).show();
+                App.toast("camera permission granted.");
                 Intent cameraIntent = new
                         Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
                 startActivityForResult(cameraIntent, CAMERA_REQUEST);
             } else {
-                Toast.makeText(App.ACTIVITY, "camera permission denied", Toast.LENGTH_LONG).show();
+                App.toast("camera permission denied.");
             }
 
         }
